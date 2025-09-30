@@ -12,7 +12,7 @@ class A:
 a = A()
 
 ```
-¿Cuáles de los siguientes nombres existen como atributos accesibles directamente desde a?
+### ¿Cuáles de los siguientes nombres existen como atributos accesibles directamente desde a?
 
 ```
 A) a.x
@@ -33,13 +33,13 @@ class A:
 a = A()
 print(hasattr(a, '__secret'), hasattr(a, '_A__secret'))
 ```
-¿Que imprime?
+### ¿Que imprime?
 
 **RTA:** False True
 
 
 ## Ejercicio 3
-Responde verdadero o falso
+### Responde verdadero o falso
 
 
 **_a)_** El prefijo `_` impide el acceso desde fuera de la clase.  
@@ -64,7 +64,7 @@ class Sub(Base):
 
 print(Sub().reveal())
 ```
-¿Qué se imprime y por qué no hay error de acceso?
+### ¿Qué se imprime y por qué no hay error de acceso?
 **RTA:** abc, y no hay error porque solo tiene `_` y no `__` entonces no está restringido su acceso
 
 ## Ejercicio 5
@@ -82,3 +82,20 @@ class Sub(Base):
 
 print(Sub().show())
 ```
+### ¿Cual es la salida?
+**RTA:** (2, 1)
+
+## Ejercicio 6
+```python
+class Caja:
+    __slots__ = ('x',)
+
+c = Caja()
+c.x = 10
+c.y = 20
+```
+### ¿Qué ocurre y por qué?
+**RTA:** Ocurre un AttributeError al intentar asignar c.y = 20.
+
+
+Al definir `__slots__ = ('x',)`, se restrinje la creacion de nuevos atributos como en este caso `y`
