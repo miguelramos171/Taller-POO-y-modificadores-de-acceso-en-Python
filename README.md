@@ -9,7 +9,7 @@ class A:
     _y = 2
     __z = 3
 
-a = A()
+a = A()```
 
 ¿Cuáles de los siguientes nombres existen como atributos accesibles directamente desde a?
 
