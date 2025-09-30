@@ -1,6 +1,7 @@
 # Taller: POO y Modificadores de Acceso en Python  
 
-## 1. Dada la clase  
+## 1. 
+Dada la clase  
 
 ```python
 class A:
