@@ -11,6 +11,7 @@ class A:
 
 a = A()
 
+```
 ¿Cuáles de los siguientes nombres existen como atributos accesibles directamente desde a?
 
 A) a.x
