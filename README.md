@@ -166,8 +166,6 @@ print(s._S__data)
 ```
 
 
-## Ejercicio 10 
-
 ## Ejercicio 10
 ```python
 class D:
