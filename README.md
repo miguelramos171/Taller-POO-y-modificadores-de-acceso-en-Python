@@ -1,6 +1,6 @@
 # Taller: POO y Modificadores de Acceso en Python  
 
-## 1. 
+## 1. ejercicio
 Dada la clase  
 
 ```python
