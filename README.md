@@ -25,7 +25,7 @@ D) a._A__z
 
 
 ## Ejercicio 2
-```
+```python
 class A:
     def __init__(self):
         self.__secret = 42
@@ -99,3 +99,88 @@ c.y = 20
 
 
 Al definir `__slots__ = ('x',)`, se restrinje la creacion de nuevos atributos como en este caso `y`
+
+## Ejercicio 7
+### Completa para que b tenga un atributo “protegido por convención”.
+
+```python
+class B:
+    def __init__(self):
+        self.______ = 99
+```
+
+**RTA:** 
+```python
+class B:
+    def __init__(self):
+        self._num = 99
+```
+
+
+## Ejercicio 8
+```python
+class M:
+    def __init__(self):
+        self._state = 0
+    def _step(self):
+        self._state += 1
+        return self._state
+    def __tick(self):
+        return self._step()
+
+m = M()
+print(hasattr(m, '_step'), hasattr(m, '__tick'), hasattr(m, '_M__tick'))
+```
+
+### ¿Qué imprime y por qué?
+
+**RTA:** imprime `True False True`, porque 
+
+`_step` existe y es accesible (True)
+
+`__tick` se transforma por name mangling a _M__tick, por lo que no existe (False)
+
+`_M__tick` sí existe (True)
+
+
+## Ejercicio 9
+
+```python
+class S:
+    def __init__(self):
+        self.__data = [1, 2]
+    def size(self):
+        return len(self.__data)
+
+s = S()
+```
+
+
+Accede a __data (solo para comprobar), sin modificar el código de la clase: Escribe una línea que obtenga la lista usando name mangling y la imprima.
+
+### Escribe la línea solicitada.
+
+**RTA:** 
+```python 
+print(s._S__data)
+```
+
+
+## Ejercicio 10 
+
+## Ejercicio 10
+```python
+class D:
+    def __init__(self):
+        self.__a = 1
+        self._b = 2
+        self.c = 3
+
+d = D()
+names = [n for n in dir(d) if 'a' in n]
+print(names)
+```
+
+**RTA:** El atributo `__a` sufre name mangling por lo que queda `_D__a`, por eso en `dir(d)` veremos `_D__a`
+
+
